@@ -1,4 +1,4 @@
-﻿### 插件提交
+### 插件提交
 
 - **仓库**：https://github.com/M0Yun/dsh-cookie-guard
 - **形态**：cordis-plugin（DSH profile bundle）

@@ -1,4 +1,4 @@
-﻿# dsh-cookie-guard
+# dsh-cookie-guard
 
 > DeepSeek Harness 桌面端（Windows）每次启动都会往 Cookie 库里多留一条登录 Cookie，从不清理。攒到约 70 条时 Cookie 请求头超过 16 KB，本地 Host 直接回 **431**，桌面端报 `Web authentication failed`——表现就是 **DSH 再也打不开**。
 >
