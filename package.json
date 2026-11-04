@@ -1,7 +1,7 @@
 {
   "name": "dsh-cookie-guard",
   "version": "0.1.0",
-  "description": "Fix for DeepSeek Harness desktop on Windows: it appends one dsh-auth-* login cookie per launch and never cleans them, until the Cookie header passes 16 KB and the app answers 431 / Web authentication failed. This bundle installs a pre-launch cleaner and, on request, repoints the desktop shortcuts at it.",
+  "description": "DeepSeek Harness Desktop on Windows appends one dsh-auth-* login cookie per launch and never cleans them; after ~70 launches the Cookie header passes 16 KB and the app answers 431 (Web authentication failed). This bundle detaches a cleaner when the Host starts and prunes the previous launch's cookies as soon as the app exits.",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -11,7 +11,6 @@
   },
   "files": [
     "lib",
-    "assets",
     "cordis.patch.yml",
     "README.md",
     "LICENSE"
@@ -32,7 +31,7 @@
     "431"
   ],
   "engines": {
-    "node": ">=20",
+    "node": ">=22.5",
     "dsh": ">=0.2.0"
   },
   "license": "MIT",
