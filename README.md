@@ -43,8 +43,14 @@ Node 的 HTTP 服务默认 `maxHeaderSize` 是 16 KB，超了直接 431；桌面
 ## 用法
 
 ```bash
-dsh plugin add dsh-cookie-guard
+# 直接从仓库装（推荐）
+dsh plugin add github:M0Yun/dsh-cookie-guard
+
+# 或者装本地目录
+dsh plugin add D:\path\to\dsh-cookie-guard
 ```
+
+> ⚠️ npm 上的 `dsh-cookie-guard` 不是这个仓库（那是别人的同名包，0.1.1），别用 `dsh plugin add dsh-cookie-guard`。
 
 重启 Harness 后插件开始工作，之后正常开关 DSH 即可，不用改任何习惯。
 

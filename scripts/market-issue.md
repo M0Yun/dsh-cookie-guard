@@ -2,7 +2,7 @@
 
 - **仓库**：https://github.com/M0Yun/dsh-cookie-guard
 - **形态**：cordis-plugin（DSH profile bundle）
-- **npm**：`dsh-cookie-guard`（发布后 `dsh plugin add dsh-cookie-guard` 一键安装）
+- **npm**：未发布（`dsh-cookie-guard` 这个名字在 npm 上已被 `kevindawn11-hash/dsh-cookie-guard` 占用），用 `dsh plugin add github:M0Yun/dsh-cookie-guard` 安装
 - **平台**：Windows 10/11 桌面端
 - **DSH 版本**：`engines.dsh >= 0.2.0`，Node ≥ 22.5（用内置 `node:sqlite`，零依赖）
 - **许可证**：MIT
@@ -31,7 +31,7 @@ DSH 也没有清理逻辑。
 ### 安装
 
 ```bash
-dsh plugin add dsh-cookie-guard
+dsh plugin add github:M0Yun/dsh-cookie-guard
 ```
 
 ### 验证过什么
