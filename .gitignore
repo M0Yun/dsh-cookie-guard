@@ -1,0 +1,17 @@
+node_modules/
+backups/
+guard.log
+*.log
+.DS_Store
+docs/
+
+# 插件化之前的老式安装（直接放在包根目录的那一份）。
+# 执行 cookie_guard({ action: "install" }) 之后它们会被复制到
+# %LOCALAPPDATA%\dsh-cookie-guard，这里的副本就废弃了。
+/app-path.txt
+/guard-lib.ps1
+/install-guard.ps1
+/launch-dsh.vbs
+/prune-dsh-cookies.ps1
+/prune_cookies.py
+/start-dsh.ps1
