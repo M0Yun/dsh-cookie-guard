@@ -118,14 +118,25 @@ try {
   else {
     $pnpm = 'C:\Users\19232\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\pnpm\bin\pnpm.mjs'
     $node = 'C:\Users\19232\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe'
-    $env:npm_config_registry = 'https://registry.npmjs.org/'
-    $env:npm_config_//registry_npmjs_org_:_authToken = $NpmToken
-    & $node $pnpm publish --no-git-checks --access public
-    if ($LASTEXITCODE -ne 0) {
-      Write-Host "npm 发布失败（退出码 $LASTEXITCODE），仓库已可用，稍后可重发。" -ForegroundColor Yellow
+    # 临时 npmrc：用完删掉，token 不落到用户目录
+    $npmrc = Join-Path $env:TEMP ("dsh-publish-{0}.npmrc" -f $PID)
+    @(
+      'registry=https://registry.npmjs.org/'
+      "//registry.npmjs.org/:_authToken=$NpmToken"
+    ) | Set-Content -LiteralPath $npmrc -Encoding ASCII
+    $env:npm_config_userconfig = $npmrc
+    try {
+      & $node $pnpm publish --no-git-checks --access public
+      if ($LASTEXITCODE -ne 0) {
+        Write-Host "npm 发布失败（退出码 $LASTEXITCODE），仓库已可用，稍后可重发。" -ForegroundColor Yellow
+      }
+      else {
+        Write-Host "已发布 $($pkg.name)@$($pkg.version)"
+      }
     }
-    else {
-      Write-Host "已发布 $($pkg.name)@$($pkg.version)"
+    finally {
+      Remove-Item $npmrc -Force -ErrorAction SilentlyContinue
+      Remove-Item Env:npm_config_userconfig -ErrorAction SilentlyContinue
     }
   }
 
