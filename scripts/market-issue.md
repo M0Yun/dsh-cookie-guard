@@ -1,6 +1,6 @@
-### 插件提交
+﻿### 插件提交
 
-- **仓库**：https://github.com/M1zuyn/dsh-cookie-guard
+- **仓库**：https://github.com/M0Yun/dsh-cookie-guard
 - **形态**：cordis-plugin（DSH profile bundle）
 - **npm**：`dsh-cookie-guard`（发布后 `dsh plugin add dsh-cookie-guard` 一键安装）
 - **平台**：Windows 10/11 桌面端
